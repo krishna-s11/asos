@@ -862,6 +862,7 @@ const Section8 = ({next,back,name}) => {
             setLoading(false);
         } catch (error) {
             console.log(error);
+            setLoading(false);
         }
     }
 
