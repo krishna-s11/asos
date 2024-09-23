@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.page_wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.left_wrapper{
+    flex: 1;
+    background-image: linear-gradient(90deg, rgba(25,84,126,0.6) 0%, rgba(10,104,159,0.6) 35%, rgba(0,174,255,0.6) 100%), url(../../Assets/bg2.jpeg);
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    flex-direction: column;
+}
+.left_wrapper h1{
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.left_wrapper h2{
+    color: #ff7f50;
+    font-size: 28px;
+}
+.left_wrapper a{
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 2px;
+    font-weight: 600;
+}
+.right_wrapper{
+    width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 60px 30px 30px 30px;
+    overflow-y: scroll;
+}
+.amber_logo{
+    color: rgb(37, 129, 178);
+    margin-bottom: 40px;
+}
+.info_box{
+    width: 100%;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 7px rgba(0,0,0,0.1);
+    background-color: #f2efefd6;
+    padding: 20px;
+    margin-top: 20px;
+    overflow: scroll;
+}
+.btn_holder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.btn_holder button {
+    background-color: rgb(37, 129, 178);
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3 ease-in;
+}
+.btn_holder button:hover {
+    background-color: rgb(29, 112, 162);
+}

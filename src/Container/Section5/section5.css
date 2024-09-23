@@ -1,0 +1,14 @@
+.declaration_format{
+    width: 400px ;
+    height: 270px;
+    background-color: #f2efefd6;
+    padding: 10px 20px;
+    border-radius: 10px;
+    overflow-y: scroll !important;
+}
+.declaration_format p{
+    font-size: 14px;
+}
+.section5{
+    overflow-y: scroll !important;
+}
