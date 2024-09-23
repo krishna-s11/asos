@@ -27,7 +27,7 @@ const FinalForm = () => {
         e.preventDefault();
 
         try {        
-            const res = await fetch(`http://localhost:8080/api/final_form/${id}`, {
+            const res = await fetch(`https://asos-ser.onrender.com/api/final_form/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

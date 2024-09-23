@@ -11,6 +11,7 @@ const Section8 = ({next,back,name}) => {
     const [display,setDisplay] = useState(false);
     const {auth,formData,nonMsme,setNonMSME,fourM,setFourM,nda,setNDA,sqaContext,setSQA,vccContext,setVCC,bankFile,udyam,companyIncorp,panFile,gstFile} = useContext(DataContext);
     const navigate = useNavigate();
+    const [loading,setLoading]= useState(false);
   
    const calcDate = (type) => {
     const now = new Date();
@@ -570,6 +571,7 @@ const Section8 = ({next,back,name}) => {
     const handleSubmit = async() => {
         const currDateTime = calcDate("datetime");
         const currDate = calcDate("date");
+        setLoading(true);
         
         let nonMsmeFile;
         let ndaFile;
@@ -601,7 +603,7 @@ const Section8 = ({next,back,name}) => {
 
         try {
           console.log(ndaFile)
-          const res = await fetch(`http://localhost:8080/api/upload_file`, {
+          const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
             method: 'POST',
             body: formdata
           });
@@ -626,7 +628,7 @@ const Section8 = ({next,back,name}) => {
 
         try {
           console.log(ndaFile)
-          const res = await fetch(`http://localhost:8080/api/upload_file`, {
+          const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
             method: 'POST',
             body: formdata
           });
@@ -650,7 +652,7 @@ const Section8 = ({next,back,name}) => {
             formdata.append("filename", "FourM");
     
             try {
-              const res = await fetch(`http://localhost:8080/api/upload_file`, {
+              const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                 method: 'POST',
                 body: formdata
               });
@@ -675,7 +677,7 @@ const Section8 = ({next,back,name}) => {
     
             try {
               console.log(ndaFile)
-              const res = await fetch(`http://localhost:8080/api/upload_file`, {
+              const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                 method: 'POST',
                 body: formdata
               });
@@ -700,7 +702,7 @@ const Section8 = ({next,back,name}) => {
     
             try {
               console.log(ndaFile)
-              const res = await fetch(`http://localhost:8080/api/upload_file`, {
+              const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                 method: 'POST',
                 body: formdata
               });
@@ -724,7 +726,7 @@ const Section8 = ({next,back,name}) => {
 
             try {
               console.log(ndaFile)
-              const res = await fetch(`http://localhost:8080/api/upload_file`, {
+              const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                 method: 'POST',
                 body: formdata
               });
@@ -749,7 +751,7 @@ const Section8 = ({next,back,name}) => {
 
               try {
                 console.log(ndaFile)
-                const res = await fetch(`http://localhost:8080/api/upload_file`, {
+                const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                   method: 'POST',
                   body: formdata
                 });
@@ -774,7 +776,7 @@ const Section8 = ({next,back,name}) => {
 
             try {
               console.log(ndaFile)
-              const res = await fetch(`http://localhost:8080/api/upload_file`, {
+              const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                 method: 'POST',
                 body: formdata
               });
@@ -798,7 +800,7 @@ const Section8 = ({next,back,name}) => {
 
             try {
               console.log(ndaFile)
-              const res = await fetch(`http://localhost:8080/api/upload_file`, {
+              const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                 method: 'POST',
                 body: formdata
               });
@@ -823,7 +825,7 @@ const Section8 = ({next,back,name}) => {
 
             try {
               console.log(ndaFile)
-              const res = await fetch(`http://localhost:8080/api/upload_file`, {
+              const res = await fetch(`https://asos-ser.onrender.com/api/upload_file`, {
                 method: 'POST',
                 body: formdata
               });
@@ -847,7 +849,7 @@ const Section8 = ({next,back,name}) => {
               ...formData,
               vendorID: vendorID
             };
-            const res = await fetch(`http://localhost:8080/api/main_form`, {
+            const res = await fetch(`https://asos-ser.onrender.com/api/main_form`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -857,7 +859,7 @@ const Section8 = ({next,back,name}) => {
             let result = await res.json();
             console.log(result);  
             navigate("/thankyou")
-
+            setLoading(false);
         } catch (error) {
             console.log(error);
         }
@@ -884,10 +886,17 @@ const Section8 = ({next,back,name}) => {
                 
             </div>
         </div>  
+        {
+          loading?
+          <div className='action_box'>
+            <button className='btn_next'>Loading...</button>
+        </div>
+        :
         <div className='action_box'>
             <button className='' onClick={back}>Back</button>
             <button className='btn_next' onClick={() => {handleSubmit()}}>Submit</button>
         </div>
+        }
     </div>
   )
 }
